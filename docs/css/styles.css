@@ -1,3 +1,5 @@
-body {
-    background-color: red;;
+ html {
+    background: linear-gradient(lightblue 0% 20%,green 20% 100%);
+    background-size :cover;
+    height: 100vh;
 }
