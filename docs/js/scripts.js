@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     async function fetchdata() {
 
-        const response = await fetch("../docs/info.json");
+        const response = await fetch("./info.json");
         const data = await response.json();
     
         name.innerHTML = data.name;
