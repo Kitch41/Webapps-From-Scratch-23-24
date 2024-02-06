@@ -1,0 +1,16 @@
+{
+    "name" : "Stef Keuken",
+    "avatar" : "https://github.com/sdlkfjasldjflasdkf.webp",
+    "city" : "Volendam",
+    "favoritePets" : [
+        "Cat","Dog"
+    ],
+    "hobbys" : [
+        {
+            "hobby1" : "Gaming" 
+        },
+        {
+            "hobby2" : "Anime" 
+        }
+    ]
+}

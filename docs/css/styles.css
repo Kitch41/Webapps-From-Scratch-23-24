@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
  * {
+=======
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap');
+
+* {
+>>>>>>> Stashed changes
     margin: 0;
     padding: 0;
  }
@@ -15,6 +21,7 @@
 }
 
 body {
+<<<<<<< Updated upstream
     margin-top: 15%;
 
     width: 100%;
@@ -23,3 +30,123 @@ body {
     background: green;
     overflow: hidden;
 }
+=======
+    margin-top: 8em;
+
+    width: 100%;
+    height: 90%;
+
+    background: green url(../images/grass-texture.jpg);
+    background-size:200px;
+    background-repeat: repeat;
+
+    @media (max-width: 1000px) {
+        margin-top: 14em;
+        width: 100%;
+        height: 80%;
+        background: green url(../images/grass-texture.jpg);
+        background-size: 200px;
+        background-repeat: repeat;
+    }
+
+    main {
+        a {
+            position: absolute;
+            bottom: 1em;
+            left: 1em;
+            z-index: 9;
+            padding: 1em 3em;
+            background: linear-gradient(#fe5e10 ,#ff915c );
+            border-bottom: 5px solid #e44600;
+            
+            border-radius: 50px;
+            transition: ease 0.4s;
+            font-size: 1.2em;
+            text-transform: uppercase;
+
+            color: white;
+            text-decoration: none;
+
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 1000;
+
+            &:hover {
+                transform: scale(1.05);
+                transition: ease-in-out 0.4s;
+            }
+
+        }
+
+        .fence {
+            position: absolute;
+            top: 50px;
+            height: 100px;
+            width: 100%;
+            background: url(../images/Fence.png);
+            background-repeat: repeat-x;
+            background-size: contain;
+            z-index: 1;
+
+            @media (max-width: 1000px) {
+                top: 140px;
+            }
+
+        }
+    }
+
+}
+
+footer {
+    left: -250px;
+    top: 0;
+    z-index: 10;
+    position: absolute;
+    background-color: navy;
+    height: 100%;
+    width: 250px;
+    max-width: 250px;
+
+    transition: ease 1s;
+
+    a {
+        left: 250px;
+        padding: 10px;
+        background: linear-gradient(#fe5e10 ,#ff915c );
+        border-radius: 0 10px 10px 0;
+        position: absolute;
+        top: 45%;
+        z-index: 3;
+
+        height: 30px;
+        width: 20px;
+
+        @media (max-width:1000px) {
+            height: 50px;
+        }
+
+        svg {
+
+            height: 30px;
+            fill: none;
+            stroke: #fff;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 9px;
+
+            transition: ease 0.4s;
+            transform: rotate(180deg);
+
+            @media (max-width:1000px) {
+                height: 50px;
+            }
+
+        }
+    
+    }
+
+    ul {
+        z-index: 2;
+    }
+}
+
+>>>>>>> Stashed changes
