@@ -1,6 +1,6 @@
 {
     "name" : "Stef Keuken",
-    "avatar" : "https://github.com/sdlkfjasldjflasdkf.webp",
+    "avatar" : "./images/Helicopter-Haar.jpg",
     "city" : "Volendam",
     "description" : "Geweldig persoon",
     "favoritePets" : [
