@@ -50,6 +50,8 @@ When i wanted to go home i found out that my webapp wasn't properly linked on gi
 
 ### Day 3
 
+Day 3 was a productive one. I managed to get the 
+
 #### Checklist
 - add api
 - get animals to be created

@@ -18,19 +18,19 @@
 }
 
 body {
-    margin-top: 8em;
+    margin-top: 12em;
 
     width: 100%;
-    height: calc(100vh - 8em);
+    height: calc(100vh - 12em);
 
     background: green url(../images/grass-texture.jpg);
     background-size:200px;
     background-repeat: repeat;
 
     @media (max-width: 1000px) {
-        margin-top: 14em;
+        margin-top: 18em;
         width: 100%;
-        height: calc(100vh - 14em);
+        height: calc(100vh - 18em);
         background: green url(../images/grass-texture.jpg);
         background-size: 200px;
         background-repeat: repeat;
@@ -98,7 +98,7 @@ body {
 
         .fence {
             position: absolute;
-            top: 50px;
+            top: 100px;
             height: 100px;
             width: 100%;
             background: url(../images/Fence.png);
@@ -107,7 +107,7 @@ body {
             z-index: 1;
 
             @media (max-width: 1000px) {
-                top: 140px;
+                top: 200px;
             }
 
         }
@@ -134,6 +134,7 @@ body {
                 padding: 1em 2em;
                 gap: 2em;
                 flex-wrap: wrap;
+                overflow: scroll;
 
                 li {
                     

@@ -90,15 +90,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
  //Main-----------------Animal API Data-------------------------------------------------------------------------------
 
-    // add animal here 1/3
-    const dogbutton = document.getElementById("dogbutton");
-    const catbutton = document.getElementById("catbutton");
-    const fishbutton = document.getElementById("fishbutton");
-    const rabbitbutton = document.getElementById("rabbitbutton");
-    const monkeybutton = document.getElementById("monkeybutton");
+
 
     const buttonContainer = document.getElementById("buttonContainer");
-
     const main = document.querySelector("main");
 
 
@@ -111,7 +105,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         console.log (data);
 
 
-        const animalNumbers = [4, 9, 67, 38, 1, 5, 15, 65];
+        const animalNumbers = [4, 9, 67, 38, 1 ];
         const animalCodes = {};
         
         // maak animalCodes object met keys en value. Waar key de namen zijn en values de html codes
@@ -124,14 +118,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         
         // Console animalcodes object
         console.log(animalCodes);
-        
-
-
- 
-
-
-
-   
 
         //Sub-----------------Create Buttons for each animal-------------------------------------------------------------------------------
 
