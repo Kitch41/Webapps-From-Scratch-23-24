@@ -216,43 +216,66 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Get the distance from the top of the viewport to the top of the body element
     const distanceToTop = bodyRect.top;
 
-    let maxX = getMaxX();
-    let maxY = getMaxY();
-
     
-    // get max y
+    let maxX, maxY;
+
+    // Function to get max y
     function getMaxY() {
         return Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - distanceToTop;
     }
     
+    // Function to update maxY
     function updateMaxY() {
-        const maxY = getMaxY();
+        maxY = getMaxY(); // Update the global variable
+        console.log("Updated maxY:", maxY);
     }
     
+    // Initial call to set maxY
     updateMaxY();
     
-    // Listen for the window resize event
+    // Listen for the window resize event for maxY
     window.addEventListener("resize", updateMaxY);
-
-    //end get maxy
-
-    //get maxX
+    
+    // Function to get maxX
     function getMaxX() {
         return Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     }
     
+    // Function to update maxX
     function updateMaxX() {
-        const maxX = getMaxX();
+        maxX = getMaxX(); // Update the global variable
+        console.log("Updated maxX:", maxX);
     }
     
+    // Initial call to set maxX
     updateMaxX();
     
-    // Listen for the window resize event
+    // Listen for the window resize event for maxX
     window.addEventListener("resize", updateMaxX);
-
-    console.log("Viewheight=" + maxY + " " + "Viewwidth=" + maxX )
+    
+    // Log the initial values
+    console.log("Viewheight=" + maxY + " " + "Viewwidth=" + maxX);
+    
     
     //Main-----------------Add Animals-------------------------------------------------------------------------------
+
+    catsGaloreButton = document.getElementsByClassName("cats-galore")[0];
+
+    catsGaloreButton.addEventListener("click", catsGalore)
+
+    function catsGalore () {
+        
+        for (let i = 0; i < 100; i++) {
+            addAnimal('&#128008');
+        }
+    }
+
+
+    //add animals
+
+
+    const offsetX = 71;
+    const offsetY = 64;
 
     function addAnimal(code) {
         console.log("Create Animal");
@@ -261,12 +284,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const newP = document.createElement("p");
     
         // Generate random number
-        const randomNumberX = getRandomInt(1, maxX);
-        const randomNumberY = getRandomInt(1, maxY);
+        const randomNumberX = getRandomInt(offsetX, maxX) - offsetX;
+        const randomNumberY = getRandomInt(offsetY, maxY) - offsetY;
         const randomNumberId = getRandomInt(1, 1000000000);
     
-        newP.setAttribute("data-x", randomNumberX);
-        newP.setAttribute("data-y", randomNumberY);
+        newP.setAttribute("current-x", randomNumberX);
+        newP.setAttribute("current-y", randomNumberY);
         newP.setAttribute("id", randomNumberId);
     
         newP.classList.add("animal");
@@ -279,16 +302,66 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
         const animal = document.getElementById(randomNumberId);
     
-        const animalX = animal.getAttribute("data-x");
-        const animalY = animal.getAttribute("data-y");
+        const animalX = animal.getAttribute("current-x");
+        const animalY = animal.getAttribute("current-y");
     
         // Correct usage of transform property
         animal.style.transform = `translate(${animalX}px, ${animalY}px)`;
+
+
+        move(randomNumberId)
     }
 
-  });
+    function getRandomInt(min, max) {
+        // The formula generates a random whole number between min (inclusive) and max (inclusive)
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-  function getRandomInt(min, max) {
-    // The formula generates a random whole number between min (inclusive) and max (inclusive)
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
+    //Main------------------------Movement of animals----------------------------------------------------------------
+
+    function move(id) {
+
+        const animalid = document.getElementById(id);
+        //x
+        //get current-x via dataid
+       // randomnumber between (-current-x + offsetX) , (maxX - current-x) = new-x
+       //move animal to that x-y
+       //set new-x to current-x
+
+        //y
+        //get current-y via dataid
+        // randomnumber between (-current-y + offsetY) , (maxY - current-y) = new-y
+        //move animal to that x-y
+        //set new-y to current-y
+
+       //rerun movement after movement is complete. (timer?)
+
+        const currentX = animalid.getAttribute("current-x");
+        const currentY = animalid.getAttribute("current-y");
+
+        const minnrx = -currentX + offsetX;
+        const maxnrx = maxX - currentX;
+        const minnry = -currentY + offsetY;
+        const maxnry = maxY - currentY;
+
+        newX = getRandomInt(minnrx, maxnrx);
+        newY = getRandomInt(minnry, maxnry);
+
+
+        animalid.style.transform = `translate(${newX}px, ${newY}px)`;
+
+        animalid.setAttribute("current-x", newX);
+        animalid.setAttribute("current-y", newY);
+
+        setInterval(function() {
+            move(id);
+        }, 7000);
+   
+
+    }
+
+
+
+});
+
