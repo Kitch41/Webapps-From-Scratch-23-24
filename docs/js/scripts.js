@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function togglemenu() {
 
         if (menuopen === 0) {
-            console.log("menu open");
+         
             sidebarbuttonsvg.style.transform = 'rotate(0deg)';
             footer.style.left = '0px';
             menuopen = 1;
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
         } else if (menuopen === 1) {
-            console.log("menu close");
+            
             sidebarbuttonsvg.style.transform = 'rotate(180deg)';
-            footer.style.left = '-250px';
+            footer.style.left = '-300px';
             menuopen = 0;
         };
         
@@ -33,6 +33,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
     };
 
     sidebarbutton.addEventListener("click", togglemenu);
+
+    // //Main-----------------Remove All button-----------------------------------------------------------------------------
+    const dialog = document.querySelector("dialog");
+    const removeAllButton = document.querySelector(".removeallbutton");
+    const closeButton = document.querySelector(".dialogbutton");
+    const returnButton = document.querySelector(".returnbutton")
+    
+
+
+    removeAllButton.addEventListener("click", () => {
+        dialog.showModal();
+        dialog.style.display = "flex"
+    });
+
+    
+    returnButton.addEventListener("click", () => {
+        dialog.close();
+        dialog.style.display = "none"
+       
+    });
+
+    closeButton.addEventListener("click", () => {
+        const allanimals = document.querySelectorAll(".animal");
+
+        dialog.close();
+        dialog.style.display = "none";
+    
+       
+        allanimals.forEach(animal => {
+            animal.remove();
+            
+        });
+    
+        console.log("killed all animals");
+    });
 
     //Main-----------------Toggle Shopmenu-------------------------------------------------------------------------------
 
@@ -43,17 +78,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
     function toggleshop() {
         if (shopopen === 0) {
-            console.log("shop open");
+            
             shopbuttonsvg.style.transform = 'rotate(270deg)';
             shopsection.style.bottom = '0px';
             shopbutton.style.bottom = '11em';
+            removeAllButton.style.bottom = '11em';
             
             shopopen = 1;
         } else if (shopopen === 1) {
-            console.log("shop close");
+            
             shopbuttonsvg.style.transform = 'rotate(90deg)';
             shopsection.style.bottom = '-200px';
             shopbutton.style.bottom = '1em';
+            removeAllButton.style.bottom = '1em';
 
             shopopen = 0;
         }
@@ -102,7 +139,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const response = await fetch("https://emojihub.yurace.pro/api/all/category/animals-and-nature");
         const data = await response.json();
     
-        console.log (data);
+        // console log data from api
+        // console.log (data);
 
 
         const animalNumbers = [4, 9, 67, 38, 1 ];
@@ -117,7 +155,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
         
         // Console animalcodes object
-        console.log(animalCodes);
+        // console.log(animalCodes);
 
         //Sub-----------------Create Buttons for each animal-------------------------------------------------------------------------------
 
@@ -169,7 +207,50 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // run animalapi function
     animalapi();
 
+    // Get a reference to the body element
+    const bodyElement = document.body;
 
+    // Get the bounding client rect of the body element
+    const bodyRect = bodyElement.getBoundingClientRect();
+
+    // Get the distance from the top of the viewport to the top of the body element
+    const distanceToTop = bodyRect.top;
+
+    let maxX = getMaxX();
+    let maxY = getMaxY();
+
+    
+    // get max y
+    function getMaxY() {
+        return Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - distanceToTop;
+    }
+    
+    function updateMaxY() {
+        const maxY = getMaxY();
+    }
+    
+    updateMaxY();
+    
+    // Listen for the window resize event
+    window.addEventListener("resize", updateMaxY);
+
+    //end get maxy
+
+    //get maxX
+    function getMaxX() {
+        return Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    }
+    
+    function updateMaxX() {
+        const maxX = getMaxX();
+    }
+    
+    updateMaxX();
+    
+    // Listen for the window resize event
+    window.addEventListener("resize", updateMaxX);
+
+    console.log("Viewheight=" + maxY + " " + "Viewwidth=" + maxX )
     
     //Main-----------------Add Animals-------------------------------------------------------------------------------
 
@@ -178,13 +259,38 @@ document.addEventListener("DOMContentLoaded", (event) => {
       
         //create p element
         const newP = document.createElement("p");
+
+        // Generate random number
+        randomNumberX = getRandomInt(1, 1000000);
+        randomNumberY = getRandomInt(1, 1000000);
+        randomNumberId = getRandomInt(1, 1000000);
+
+
+
+        newP.setAttribute("data-x", randomNumberX);
+        newP.setAttribute("data-y", randomNumberY);
+        newP.setAttribute("id", randomNumberId);
+
+       
+
+        newP.classList.add("animal")
     
         // give the p element the animalcode
         newP.innerHTML = `${code}`;
       
         // add the animals to the page
         main.insertBefore(newP, null);
+
+        const animal = document.getElementById(randomNumberId)
+
+
+        animal.style.top = 0 + distanceToTop + "px" ;
+        animal.style.left = "0";
     }
 
   });
 
+  function getRandomInt(min, max) {
+    // The formula generates a random whole number between min (inclusive) and max (inclusive)
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

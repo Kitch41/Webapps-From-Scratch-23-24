@@ -40,8 +40,49 @@ body {
         height: 100%;
         width: 100%;
 
-        p {
-            position: relative;
+        dialog  {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 70vw;
+            height: 50vh;
+
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3em;
+
+            border-radius: 1em;
+
+            border: none;
+            background:  linear-gradient(#fe5e10 ,#ff915c );
+
+            button {
+                padding: 1em 2em;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 1000;
+            }
+
+            &::backdrop {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+            p {
+                font-size: 2em;
+                color: white;
+                padding: 0 1em;
+                font-family: 'DM Sans', sans-serif;
+                font-weight: 1000;
+                text-align: center;
+            }
+
+        }
+
+        .animal {
+            position: absolute;
             top: 50%;
             left: 50%;
             z-index: 4;
@@ -91,6 +132,45 @@ body {
                 stroke-linecap: round;
                 stroke-linejoin: round;
                 stroke-width: 9px;
+            }
+
+
+        }
+
+        .removeallbutton {
+            position: absolute;
+            bottom: 1em;
+            right: 1em;
+            z-index: 9;
+            padding: 1em 3em;
+            background: linear-gradient(#fe5e10 ,#ff915c );
+            border-bottom: 5px solid #e44600;
+            
+            border-radius: 50px;
+            transition: ease 1s;
+            font-size: 1.2em;
+            text-transform: uppercase;
+
+            color: white;
+            text-decoration: none;
+
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 1000;
+
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            gap: 10px;
+
+            &:hover {
+                transform: scale(1.05);
+                transition: ease 1s;
+            }
+
+            svg {
+                width: 1em;
+                height: 1em;
+                fill: white;
             }
 
 
@@ -174,14 +254,14 @@ body {
 }
 
 footer {
-    left: -250px;
+    left: -300px;
     top: 0;
     z-index: 10;
     position: absolute;
     background: linear-gradient(#fe5e10 ,#ff915c );
     height: 100%;
-    width: 250px;
-    max-width: 250px;
+    width: 300px;
+    max-width: 300px;
     padding: 2em 0;
 
     transition: ease 1s;
@@ -193,7 +273,7 @@ footer {
 
 
     a {
-        left: 250px;
+        left: 300px;
         padding: 10px;
         background: linear-gradient(#fe5e10 ,#ff915c );
         border-radius: 0 10px 10px 0;
@@ -254,10 +334,17 @@ footer {
                 border: 5px solid white;
             }
 
-            h2 {
+            summary {
                 font-family: 'DM Sans', sans-serif;
                 font-weight: 1000;
+                font-size: 1.5em;
+                list-style: revert;
+                color: white;
+                transition: ease 1s;
+
+
             }
+
             
             p {
                 font-family: 'DM Sans', sans-serif;

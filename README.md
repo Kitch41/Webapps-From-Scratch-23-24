@@ -50,11 +50,14 @@ When i wanted to go home i found out that my webapp wasn't properly linked on gi
 
 ### Day 3
 
-Day 3 was a productive one. I managed to get the 
+Day 3 was a productive one. I managed to get the animal creating work. I also tried to get everything dynamic so that when i add a number into the array it automatically adds a button with that animal and the ability to create that animal. It was a lot harder than i thought since i had to get the data from the api call into the global scope. I managed to do this with the help of Marten. i put the animal code into the data-id of the buttons i created in the fetch function.
+
+I also added some small details to the design and at the end of the day we had out first weekly nerd.
 
 #### Checklist
-- add api
-- get animals to be created
+- Add api.
+- Get animals to be created.
+- Make everything dynamic.
 
 
 ### Sources
