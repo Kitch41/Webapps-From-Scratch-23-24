@@ -256,36 +256,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     function addAnimal(code) {
         console.log("Create Animal");
-      
+    
         //create p element
         const newP = document.createElement("p");
-
+    
         // Generate random number
-        randomNumberX = getRandomInt(1, 1000000);
-        randomNumberY = getRandomInt(1, 1000000);
-        randomNumberId = getRandomInt(1, 1000000);
-
-
-
+        const randomNumberX = getRandomInt(1, maxX);
+        const randomNumberY = getRandomInt(1, maxY);
+        const randomNumberId = getRandomInt(1, 1000000000);
+    
         newP.setAttribute("data-x", randomNumberX);
         newP.setAttribute("data-y", randomNumberY);
         newP.setAttribute("id", randomNumberId);
-
-       
-
-        newP.classList.add("animal")
+    
+        newP.classList.add("animal");
     
         // give the p element the animalcode
         newP.innerHTML = `${code}`;
-      
+    
         // add the animals to the page
         main.insertBefore(newP, null);
-
-        const animal = document.getElementById(randomNumberId)
-
-
-        animal.style.top = 0 + distanceToTop + "px" ;
-        animal.style.left = "0";
+    
+        const animal = document.getElementById(randomNumberId);
+    
+        const animalX = animal.getAttribute("data-x");
+        const animalY = animal.getAttribute("data-y");
+    
+        // Correct usage of transform property
+        animal.style.transform = `translate(${animalX}px, ${animalY}px)`;
     }
 
   });
