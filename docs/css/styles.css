@@ -85,11 +85,9 @@ body {
             position: absolute;
             z-index: 4;
             font-size: 3em;
-            width: 70px;
+            width: 60px;
             height: auto;
-
             transition: ease-in-out 6s;
-
         }
 
         .shopbutton {
@@ -143,7 +141,7 @@ body {
             bottom: 1em;
             right: 1em;
             z-index: 9;
-            padding: 1em 3em;
+            padding: 0.5em 2em;
             background: linear-gradient(#fe5e10 ,#ff915c );
             border-bottom: 5px solid #e44600;
             
@@ -152,7 +150,6 @@ body {
             font-size: 1.2em;
             text-transform: uppercase;
 
-            color: white;
             text-decoration: none;
 
             font-family: 'DM Sans', sans-serif;
@@ -163,14 +160,18 @@ body {
             display: flex;
             gap: 10px;
 
+            g {
+                fill: white;
+            }
+
             &:hover {
                 transform: scale(1.05);
                 transition: ease 1s;
             }
 
             svg {
-                width: 1em;
-                height: 1em;
+                width: 2em;
+                height: 2em;
                 fill: white;
             }
 

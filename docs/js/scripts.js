@@ -2,6 +2,10 @@
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed");
 
+
+    const offsetX = 30;
+    const offsetY = 30;
+
     //Main-----------------Toggle Sidebarmenu-------------------------------------------------------------------------------
 
     const sidebarbutton = document.getElementById("menu");
@@ -257,7 +261,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     console.log("Viewheight=" + maxY + " " + "Viewwidth=" + maxX);
     
     
-    //Main-----------------Add Animals-------------------------------------------------------------------------------
+//Main-----------------Add cats-------------------------------------------------------------------------------
 
     catsGaloreButton = document.getElementsByClassName("cats-galore")[0];
 
@@ -271,21 +275,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
 
-    //add animals
+  //Main---------------------------Add animal----------------------------------------------------------------------
 
 
-    const offsetX = 71;
-    const offsetY = 64;
+
 
     function addAnimal(code) {
         console.log("Create Animal");
     
-        //create p element
+        // create p element
         const newP = document.createElement("p");
     
         // Generate random number
-        const randomNumberX = getRandomInt(offsetX, maxX) - offsetX;
-        const randomNumberY = getRandomInt(offsetY, maxY) - offsetY;
+        const randomNumberX = getRandomInt(offsetX, maxX - offsetX);
+        const randomNumberY = getRandomInt(offsetY, maxY - offsetY);
         const randomNumberId = getRandomInt(1, 1000000000);
     
         newP.setAttribute("current-x", randomNumberX);
@@ -294,7 +297,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
         newP.classList.add("animal");
     
-        // give the p element the animalcode
+        // give the p element the animal code
         newP.innerHTML = `${code}`;
     
         // add the animals to the page
@@ -307,10 +310,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
         // Correct usage of transform property
         animal.style.transform = `translate(${animalX}px, ${animalY}px)`;
-
-
-        move(randomNumberId)
+    
+        setTimeout(function () {
+            move(randomNumberId);
+        }, 1000 );
     }
+
+
+    //Main---------------------------Random Int----------------------------------------------------------------------
+
 
     function getRandomInt(min, max) {
         // The formula generates a random whole number between min (inclusive) and max (inclusive)
@@ -320,9 +328,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     //Main------------------------Movement of animals----------------------------------------------------------------
 
-    function move(id) {
 
-        const animalid = document.getElementById(id);
+
+    function move(id) {
         //x
         //get current-x via dataid
        // randomnumber between (-current-x + offsetX) , (maxX - current-x) = new-x
@@ -337,28 +345,38 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
        //rerun movement after movement is complete. (timer?)
 
-        const currentX = animalid.getAttribute("current-x");
-        const currentY = animalid.getAttribute("current-y");
 
-        const minnrx = -currentX + offsetX;
-        const maxnrx = maxX - currentX;
-        const minnry = -currentY + offsetY;
-        const maxnry = maxY - currentY;
+        const animalid = document.getElementById(id);
 
-        newX = getRandomInt(minnrx, maxnrx);
-        newY = getRandomInt(minnry, maxnry);
+        if (animalid) {
 
+            console.log("move")
 
-        animalid.style.transform = `translate(${newX}px, ${newY}px)`;
+            const currentX = animalid.getAttribute("current-x");
+            const currentY = animalid.getAttribute("current-y");
+            const timer = getRandomInt(10000, 20000);
 
-        animalid.setAttribute("current-x", newX);
-        animalid.setAttribute("current-y", newY);
-
-        setInterval(function() {
-            move(id);
-        }, 7000);
-   
-
+            animalid.style.transition = `${timer}ms`;
+    
+            const minnrx = currentX-currentX;
+            const maxnrx = maxX - currentX - offsetX;
+            const minnry = currentY-currentY;
+            const maxnry = maxY - currentY - offsetY ;
+    
+            const newX = getRandomInt(minnrx, maxnrx);
+            const newY = getRandomInt(minnry, maxnry);
+    
+            animalid.style.transform = `translate(${newX}px, ${newY}px)`;
+    
+            animalid.setAttribute("current-x", newX);
+            animalid.setAttribute("current-y", newY);
+    
+            setTimeout(function () {
+                move(id);
+            }, timer );
+        } else {
+            console.log("Element not found or null. Cancelled.");
+        }
     }
 
 
