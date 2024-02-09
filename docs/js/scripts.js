@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
     async function fetchdata() {
-
+        
         const response = await fetch("https://kitch41.github.io/Webapps-From-Scratch-23-24/json/info.json");
         const data = await response.json();
     
