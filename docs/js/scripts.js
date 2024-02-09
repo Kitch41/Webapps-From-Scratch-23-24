@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const dialog = document.querySelector("dialog");
     const removeAllButton = document.querySelector(".removeallbutton");
     const closeButton = document.querySelector(".dialogbutton");
-    const returnButton = document.querySelector(".returnbutton")
+    const returnButton = document.querySelector(".returnbutton");
     
 
 
@@ -54,8 +54,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
     returnButton.addEventListener("click", () => {
         dialog.close();
-        dialog.style.display = "none"
-       
+        dialog.style.display = "none";
     });
 
     closeButton.addEventListener("click", () => {
@@ -66,12 +65,35 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
        
         allanimals.forEach(animal => {
-            animal.remove();
+
+            animal.innerHTML = "&#128165;";
+            animal.style.transform += "scale(50)";
+
+
+            setTimeout(function () {
+                animal.remove();
+            }, 1000 );
             
         });
     
         console.log("killed all animals");
     });
+
+    function killFish(code) {
+        const animals = document.querySelectorAll(`.animal[code="${code}"]`);
+    
+        animals.forEach(animal => {
+            setTimeout(function () {
+                animal.innerHTML = "&#128128;"
+                animal.style.transform += "scale(50)";
+            }, 5000);
+    
+            setTimeout(function () {
+                animal.remove();
+            }, 5500);
+        });
+    }
+
 
     //Main-----------------Toggle Shopmenu-------------------------------------------------------------------------------
 
@@ -294,6 +316,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         newP.setAttribute("current-x", randomNumberX);
         newP.setAttribute("current-y", randomNumberY);
         newP.setAttribute("id", randomNumberId);
+        newP.setAttribute("code", code);
     
         newP.classList.add("animal");
     
@@ -304,16 +327,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
         main.insertBefore(newP, null);
     
         const animal = document.getElementById(randomNumberId);
-    
+
         const animalX = animal.getAttribute("current-x");
         const animalY = animal.getAttribute("current-y");
     
         // Correct usage of transform property
         animal.style.transform = `translate(${animalX}px, ${animalY}px)`;
+
+        if (code = "&#128031;" ) {
+            killFish(code);
+        }
     
         setTimeout(function () {
             move(randomNumberId);
-        }, 1000 );
+        }, 100 );
     }
 
 
@@ -321,8 +348,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
     function getRandomInt(min, max) {
-        // The formula generates a random whole number between min (inclusive) and max (inclusive)
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // find diff
+        let difference = max - min;
+    
+        // generate random number 
+        let rand = Math.random();
+    
+        // multiply with difference 
+        rand = Math.floor( rand * difference);
+    
+        // add with min value 
+        rand = rand + min;
+    
+        return rand;
     }
 
 
@@ -350,8 +389,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         if (animalid) {
 
-            console.log("move")
-
             const currentX = animalid.getAttribute("current-x");
             const currentY = animalid.getAttribute("current-y");
             const timer = getRandomInt(10000, 20000);
@@ -373,11 +410,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
             setTimeout(function () {
                 move(id);
-            }, timer );
+            }, timer + 1000 );
         } else {
             console.log("Element not found or null. Cancelled.");
         }
     }
+
+
 
 
 

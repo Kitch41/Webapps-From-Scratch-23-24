@@ -88,6 +88,8 @@ body {
             width: 60px;
             height: auto;
             transition: ease-in-out 6s;
+            transform-origin: center center; 
+            animation-play-state: paused;
         }
 
         .shopbutton {
@@ -378,3 +380,16 @@ footer {
   scrollbar-width: none;  /* Firefox */
 }
 
+
+/* Keyframes */
+@keyframes Die {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
