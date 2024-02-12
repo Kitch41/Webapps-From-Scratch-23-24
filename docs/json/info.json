@@ -1,8 +1,14 @@
 {
     "name" : "Stef Keuken",
+    "birthdate" : {
+        "year" : "2002",
+        "month" : "12",
+        "day" : "09"
+    },
     "avatar" : "https://kitch41.github.io/Webapps-From-Scratch-23-24/images/Helicopter-Haar.jpg",
+    "github" : "https://github.com/Kitch41/Webapps-From-Scratch-23-24",
     "city" : "Volendam",
-    "description" : "Geweldig persoon",
+    "description" : "Guy with too much time on his hands",
     "favoritePets" : [
         "Cat","Dog"
     ],
@@ -12,6 +18,10 @@
         },
         {
             "hobby2" : "Anime" 
+        },
+        {
+            "hobby3" : "Coding"
         }
-    ]
+    ],
+    "openForJobProposals" : "True"
 }
