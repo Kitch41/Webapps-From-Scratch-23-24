@@ -143,8 +143,6 @@ At the bottom there's a little easter egg that makes the fish die after 5 second
 
 </details>
 
-<br>
-
 <details>
 <summary>CatsGalore</summary>
 <br>
@@ -321,7 +319,7 @@ This function uses the data-ids i generated in the addAnimal function to find ou
 
  ```
 </details>
-<br>
+
 <details>
     <summary>Fetch local api Function</summary>
 <br>
@@ -494,7 +492,7 @@ This code creates some dom elements with the html code of the animal and their n
 
 
 </details>
-<br>
+
 <details>
     <summary>Kill fish</summary>
 <br>
