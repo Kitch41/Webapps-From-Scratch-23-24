@@ -1,10 +1,7 @@
 # Web App From Scratch @cmda-minor-web 2023 - 2024
 
-In this readme file you can find everything you need to know about this webapp. More intro text add later....
+In this readme file you can find everything you need to know about this webapp. The things i write here is the thought process i went through in creating this webapp. It mostly consists of explanations of the things i did and not so much the code since that will be in another file called <a href="https://github.com/Kitch41/Webapps-From-Scratch-23-24/blob/24abbd10b74daee4f038774e4f57f6c1c6cf2bcc/coding.md">coding.md</a>
 
-## How to install
-
-Install guide (don't know if needed)
 ## Process report
 
 ### Day 1 - Kickoff
@@ -90,7 +87,8 @@ Day 4 was one of the more rough, but rewarding days. I basically spent the whole
 
 
 ### Sources
-
+- Marten
+- Random number generator: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 ### Day 5
 
@@ -106,7 +104,7 @@ at the end of the day the death animations are working and i even made a little 
 
 #### Checklist
 - Get death animations ❌(failed, then found new way) ✅
-- Get movement directions ❌(failed)
+- Get movement directions ❌(failed, Couldnt get it working due to transform)
 - work on team project ✅
 
 
@@ -117,7 +115,23 @@ at the end of the day the death animations are working and i even made a little 
 <img src="./docs/images/screenshots/chatgpt-1.PNG" width="800px" height="auto">
 
 
-
 ### To do
-- Add animals turn to movementdirection.
-- Add responsive screen downsizing. (reinitialise move function on screensize)
+- Add animals turn to movementdirection. ❌
+- Add responsive screen downsizing. (reinitialise move function on screensize) ❌
+
+
+### Day 6
+
+On day 6 i mostly worked on the team project. I initialised it and fixed the basics. I also tried to fix the rotation of the animals so that they would face the way they moved. I tried it using rotate in the move function but this turned out a lot harder than i thought. So after some hours of trying i gave up since we desperately needed to work on the team website otherwise we wouldn't have the time to fix it.
+
+This is the final day of my personal page. the end result looks like this:
+
+<img src="./docs/images/screenshots/final-game.PNG" width="800px" height="auto">
+
+
+#### Checklist
+- finished individual page ✅
+
+
+### Sources
+- None
