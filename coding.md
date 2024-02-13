@@ -47,7 +47,6 @@ In this document i will document the state of my code and the things i walked in
 ```
 
 </details>
-<br>
 
 <details>
 <summary>Toggle Shop</summary>
