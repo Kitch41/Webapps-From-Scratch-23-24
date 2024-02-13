@@ -140,11 +140,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const response = await fetch("https://kitch41.github.io/Webapps-From-Scratch-23-24/info.json");
         const data = await response.json();
     
-        name.innerHTML = data.name;
-        description.innerHTML = data.description;
-        hobbys.innerHTML = data.hobbys[0].hobby1;
-        favoriteanimals.innerHTML = data.favoritePets;
-        profileimage.src = data.avatar;
+        name.innerHTML = data.firstName + " " + data.lastName;
+        description.innerHTML = data.bio;
+        hobbys.innerHTML = data.hobbies;
+        favoriteanimals.innerHTML = data.favouriteAnimal;
+        profileimage.src = data.avatar_url;
 
     }
     
