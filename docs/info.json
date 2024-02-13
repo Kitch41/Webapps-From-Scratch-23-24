@@ -6,7 +6,7 @@
     "age" : 21,
     "city" : "Volendam",
     "hobbies" : ["Gaming", "Anime", "Music", "Coding"],
-    "truthsAndLies" : ["Ik had oranje haar", "Ik lust geen vis", "Ik ben familie van een bekend persoon"],
-    "bio" : "Ik ben gewoon een jongen met teveel tijd om handen",
-    "favouriteAnimal" : "Kat"
+    "truthsAndLies" : ["I had orange hair", "I don't like fish", "There is a famous person in my family"],
+    "bio" : "I'm just a guy with too much time on his hands",
+    "favouriteAnimal" : "Cat"
 }
