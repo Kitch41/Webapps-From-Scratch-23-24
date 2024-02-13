@@ -230,56 +230,54 @@ document.addEventListener("DOMContentLoaded", (event) => {
             });
     }
 
-    // run animalapi function
+
     animalapi();
 
-    // Get a reference to the body element
+
     const bodyElement = document.body;
 
-    // Get the bounding client rect of the body element
+
     const bodyRect = bodyElement.getBoundingClientRect();
 
-    // Get the distance from the top of the viewport to the top of the body element
+
     const distanceToTop = bodyRect.top;
 
     
     let maxX, maxY;
 
-    // Function to get max y
     function getMaxY() {
         return Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - distanceToTop;
     }
     
-    // Function to update maxY
+
     function updateMaxY() {
-        maxY = getMaxY(); // Update the global variable
+        maxY = getMaxY(); 
         console.log("Updated maxY:", maxY);
     }
-    
-    // Initial call to set maxY
+
     updateMaxY();
     
-    // Listen for the window resize event for maxY
+
     window.addEventListener("resize", updateMaxY);
     
-    // Function to get maxX
+
     function getMaxX() {
         return Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     }
     
-    // Function to update maxX
+
     function updateMaxX() {
-        maxX = getMaxX(); // Update the global variable
+        maxX = getMaxX(); 
         console.log("Updated maxX:", maxX);
     }
     
-    // Initial call to set maxX
+
     updateMaxX();
     
-    // Listen for the window resize event for maxX
+
     window.addEventListener("resize", updateMaxX);
     
-    // Log the initial values
+
     console.log("Viewheight=" + maxY + " " + "Viewwidth=" + maxX);
     
     
