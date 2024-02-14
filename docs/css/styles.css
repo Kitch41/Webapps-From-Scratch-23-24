@@ -276,7 +276,7 @@ footer {
 
 
 
-    a {
+    #menu {
         left: 300px;
         padding: 10px;
         background: linear-gradient(#fe5e10 ,#ff915c );
@@ -311,6 +311,16 @@ footer {
 
         }
     
+    }
+    .teamwebsite {
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 1000;
+        padding: 1em 2em;
+        background-color: white;
+        border-radius: 10em;
+        margin-top: 5em;
+        text-decoration: none;
+        color: black;
     }
 
     .cats-galore {
@@ -364,6 +374,8 @@ footer {
                 font-weight: 1000;
                 max-width: 200px;
             }
+
+
         }
 
 
@@ -381,6 +393,8 @@ footer {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
 
 
 /* Keyframes */
