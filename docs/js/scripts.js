@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         allanimals.forEach(animal => {
 
             animal.innerHTML = "&#128165;";
-            animal.style.transform += "scale(50)";
+            animal.classList.add("death")
 
 
             setTimeout(function () {
