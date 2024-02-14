@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const hobbys = document.getElementById("hobbys");
     const favoriteanimals = document.getElementById("favoriteanimals");
     const profileimage = document.getElementById("profileimage");
+    const age = document.getElementById("age");
 
 
 
@@ -142,7 +143,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
         name.innerHTML = data.firstName + " " + data.lastName;
         description.innerHTML = data.bio;
-        hobbys.innerHTML = data.hobbies;
+        age.innerHTML = data.age;
+
+        const hobbysData = data.hobbies;
+
+        hobbysData.forEach(hobby => {
+            hobbys.innerHTML += hobby + "," + " ";
+        });
+
+        // hobbys.innerHTML = data.hobbies;
         favoriteanimals.innerHTML = data.favouriteAnimal;
         profileimage.src = data.avatar_url;
 
